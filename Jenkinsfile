@@ -43,7 +43,7 @@ pipeline{
         
         stage('deploy e2e'){
              steps{
-                git branch: 'master', url: 'https://github.com/abhishekmha/ArgoCD_CD_ShellScript.git'        
+                git branch: 'master', url: 'https://github.com/abhishekmha/ArgoCD_CD_Kustomize.git'        
             
                
                 }
