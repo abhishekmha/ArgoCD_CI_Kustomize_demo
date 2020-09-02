@@ -45,23 +45,7 @@ pipeline{
              steps{
                 git branch: 'master', url: 'https://github.com/abhishekmha/ArgoCD_CD_ShellScript.git'        
             
-                //sh 'rm -rf ArgoCD_CD'
-		    //sh 'git clone https://${git_username}:${git_password}@github.com/abhishekmha/ArgoCD_CD_ShellScript.git'
-		
-                dir("ArgoCD_CD_ShellScript"){
-	            sh '''
-		      cd ./yamls 
-                      image_name=`grep -i image deployment.yaml`
-		      build_number=`echo $image_name| rev | cut -d":" -f1  | rev`
-		      sed -i "s/$build_number/${BUILD_NUMBER}/g" deployment.yaml
-		      git add .
-		      git commit -m "published new version ${BUILD_NUMBER}"
-		      git push https://${git_username}:${git_password}@github.com/abhishekmha/ArgoCD_CD_ShellScript.git master
-		      
-		    '''
-		}
-                    //sh "cd ./yamls && sed -i 's/world:*/world:34/g'"
-                    //sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
+               
                 }
             }
         } 
