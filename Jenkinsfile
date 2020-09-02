@@ -43,7 +43,16 @@ pipeline{
         
         stage('deploy e2e'){
              steps{
-                git branch: 'master', url: 'https://github.com/abhishekmha/ArgoCD_CD_Kustomize.git'        
+                git branch: 'master', url: 'https://github.com/abhishekmha/ArgoCD_CD_Kustomize.git'       
+                 
+                 sh '''
+                    cd ./e2e
+                    kustomize edit set image gcr.io/cybage-devops/spring-boot-hello-world=gcr.io/cybage-devops/spring-boot-hello-world:$BUILD_NUMBER
+                    git add .
+                    git commit -m "published new version ${BUILD_NUMBER}"
+                    git push https://${git_username}:${git_password}@github.com/abhishekmha/ArgoCD_CD_Kustomize.git master
+                    
+                 '''
             
                
                 }
