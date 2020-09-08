@@ -10,7 +10,7 @@ public class HelloWorldController {
 
 	@RequestMapping(value = { "/hello" }, method = RequestMethod.GET)
 	public String sayHelloWorld() {
-		String responseMsg = new StringBuilder("<h1>").append("Hey...Hello ArgoCD demo !!").append("</h1>").toString();
+		String responseMsg = new StringBuilder("<body><h1>").append("Hey...Hello ArgoCD demo !!").append("</h1></body>").toString();
 		return responseMsg;
 	}
 
@@ -18,7 +18,7 @@ public class HelloWorldController {
 	public String sayHelloMsg(@PathVariable String msg) {
 		String responseMsg = "Hello World";
 		try {
-			responseMsg = new StringBuilder("<body bgcolor="blue"><h1>").append("Hello ").append(msg).append("</h1></body>").toString();
+			responseMsg = new StringBuilder("<h1>").append("Hello ").append(msg).append("</h1>").toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
