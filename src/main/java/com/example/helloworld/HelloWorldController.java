@@ -18,7 +18,7 @@ public class HelloWorldController {
 	public String sayHelloMsg(@PathVariable String msg) {
 		String responseMsg = "Hello World";
 		try {
-			responseMsg = new StringBuilder("<body bgcolor="#FF0000"><h1>").append("Hello ").append(msg).append("</h1></body>").toString();
+			responseMsg = new StringBuilder("<body bgcolor="blue"><h1>").append("Hello ").append(msg).append("</h1></body>").toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
